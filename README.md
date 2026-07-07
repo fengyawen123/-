@@ -13,6 +13,7 @@
 | [`产品能力模型.md`](产品能力模型.md) | 把心理咨询课程重构成 L0–L5 分层能力（安全 / 关系 / 技术 / 方法 / 评估 / 知识），含对话状态机、红线清单、MVP 优先级 |
 | [`系统Prompt.md`](系统Prompt.md) | 可直接运行的对话内核（system prompt），经两轮对话 + 一轮危机场景验证并调优 |
 | [`.claude/skills/psychologist/SKILL.md`](.claude/skills/psychologist/SKILL.md) | 封装成 Claude Code 的 Skill，可在对话中自动触发 |
+| `.claude/skills/{personality,social,developmental,cognitive}-psychology/` | 四个「知识透镜」Skill，从对应心理学分支提炼，作为 psychologist 的 L5 扩展按场景自动触发 |
 
 ---
 
@@ -46,6 +47,19 @@ L5  心理学知识  ← 让回应有根，而非鸡汤
 **安装位置**：
 - 项目级（仅本项目）：`<项目>/.claude/skills/psychologist/`
 - 全局（所有项目可用）：`~/.claude/skills/psychologist/`
+
+---
+
+## 四个知识透镜 Skill（L5 扩展）
+
+在 psychologist 主方法论之下，另有四个「知识透镜」，从对应心理学分支提炼，只提供**看问题的角度**——先共情、L0 安全永远优先，不喧宾夺主、不诊断、不贴标签：
+
+| Skill | 提炼自 | 触发场景 |
+|---|---|---|
+| `personality-psychology` | 人格心理学 | "我是什么样的人"、做完 MBTI 想深聊、"我为什么总这样"（大五 / 依恋 / MBTI 讲倾向不贴标签） |
+| `social-psychology` | 社会心理学 | 吵架、被误解、"他为什么这样对我"、关系委屈（归因偏差 / 亲密关系 / 群体） |
+| `developmental-psychology` | 发展心理学 | 青春期、职场新人、婚恋、育儿、中年、空巢、代际（按人生阶段调整视角） |
+| `cognitive-psychology` | 认知心理学 | 钻牛角尖、灾难化、"我肯定不行"、反刍（认知扭曲清单 + 苏格拉底式提问） |
 
 ---
 
